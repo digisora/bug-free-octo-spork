@@ -1,8 +1,8 @@
 class QuotesController < ApplicationController
+
   def index
     @quote = Quote.order("RANDOM() ").first
   end
-
 
   def create
     @quote = Quote.create(quote_params)
@@ -20,4 +20,5 @@ class QuotesController < ApplicationController
   def quote_params
     params.require(:quote).permit(:saying, :author)
   end
+  
 end
